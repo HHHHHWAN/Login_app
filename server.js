@@ -1,6 +1,7 @@
 const express = require('express');
 const rootPage = require('./src/router');
 const path = require('path');
+require('dotenv').config()
 const app = express();
 const DB = require('mysql2');
 const port = 3300;
