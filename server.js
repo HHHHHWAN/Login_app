@@ -12,7 +12,7 @@ const port = 3300;
 const user_DB = DB.createConnection({
 	host : 'db', // mysql-container 
     user : 'sqlmain',
-    password : 'process.env.SQL_USER_PASS',
+    password : process.env.SQL_USER_PASS,
     database : 'docker_test_DB',
 });
 
