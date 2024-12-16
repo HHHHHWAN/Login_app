@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  app:
+    image: hhhhhwan/login_web_images
+    ports:
+      - 3300:3300
+    container_name: login-container
+    environment:
+      MYSQL_USER : ${SQL_USER_NAME}
+      MYSQL_PASS : ${SQL_USER_PASS} 
+      MYSQL_DATABASE : ${SQL_USER_DATABASE} 
+    networks:
+      - second_bridge
+    depends_on:
+      db:
+       condition: service_healthy
+    
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SQL_ROOT_PASS}
+      MYSQL_DATABASE : ${SQL_USER_DATABASE} 
+      MYSQL_USER : ${SQL_USER_NAME}
+      MYSQL_PASSWORD : ${SQL_USER_PASS} 
+    container_name: mysql-container
+    user: root
+    ports:
+      - 3301:3306
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - second_bridge
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+
+
+# volumes:
+#   db_data: 
+
+networks:
+  second_bridge:
+    driver: bridge
+    name: second_bridge

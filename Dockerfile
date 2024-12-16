@@ -2,11 +2,13 @@ FROM node:18-alpine3.19
 
 WORKDIR /test/app
 
-COPY package*.json ./
+COPY package*.json .
 
 RUN npm ci
 
-COPY src templates server.js ./
+COPY ./src ./src
+COPY ./templates ./templates
+COPY server.js .
 
 EXPOSE 3300
 

@@ -7,13 +7,16 @@ const DB = require('mysql2');
 const port = 3300;
 
 // app.set('view engine', 'ejs');
-// app.use('/', rootPage);
+// app.use('/', rootPage);'
+
+console.log(process.env.MYSQL_USER,process.env.MYSQL_PASS,process.env.MYSQL_DATABASE);
+
 
 const user_DB = DB.createConnection({
-	host : 'db', // mysql-container 
-    user : 'sqlmain',
-    password : process.env.SQL_USER_PASS,
-    database : 'docker_test_DB',
+	host : 'db',
+    user : process.env.MYSQL_USER,
+    password : process.env.MYSQL_PASS,
+    database : process.env.MYSQL_DATABASE
 });
 
 user_DB.connect((err) => {
