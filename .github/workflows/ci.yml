@@ -22,11 +22,11 @@ jobs:
         
       - name: Build and Push Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/login_web_image:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/login_web_image:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/login_web_images:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/login_web_images:latest
   
 
 
-  
+
 
 
