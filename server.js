@@ -9,7 +9,7 @@ const port = 3300;
 // app.set('view engine', 'ejs');
 // app.use('/', rootPage);'
 
-console.log(process.env.MYSQL_USER,process.env.MYSQL_PASS,process.env.MYSQL_DATABASE);
+console.log("test_version 1.1 release");
 
 
 const user_DB = DB.createConnection({
