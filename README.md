@@ -1,4 +1,4 @@
-https://github.com/HHHHHWAN/Login_app/tree/master# 학습
+# 학습
 ---
 - Git을 이용한, 개발소스 형상관리하기
 - GitHub 저장소와 연동하기
